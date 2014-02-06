@@ -5,7 +5,7 @@ module Uploader
     end
 
     def self.using_s3?
-      ENV["S3_BUCKET"].present?
+      ENV.values_at("S3_BUCKET", "S3_ACCESS_KEY_ID", "S3_SECRET_ACCESS_KEY").all?(&:present?)
     end
 
     def self.s3_options
