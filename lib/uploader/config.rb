@@ -1,7 +1,7 @@
 module Uploader
   module Config
     def self.options
-      using_s3? ? s3_options : file_system_options
+      using_s3? ? s3_options : filesystem_options
     end
 
     def self.using_s3?
@@ -22,7 +22,7 @@ module Uploader
       }
     end
 
-    def self.file_system_options
+    def self.filesystem_options
       { url: "/uploads/:fingerprint.:extension" }
     end
   end
